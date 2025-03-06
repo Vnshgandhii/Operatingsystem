@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+    int n;
+    int AT[100],BT[100],CT[100],TAT[100],WT[100];
+    printf("Enter the number of proceessor ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("Enter the arrival[%d] ",i);
+        scanf("%d",&AT[i]);
+    }
+    for(int x=0;x<n;x++){
+        printf("Enter the BUS time [%d] ",x);
+        scanf("%d",&BT[x]);
+    }
+    int sum=0;
+    for(int z=0;z<n;z++){
+        sum=sum+BT[z];
+        CT[z]=sum;
+    }
+    for(int q=0;q<n;q++){
+        TAT[q]=CT[q]-AT[q];
+    }
+    for(int e=0;e<n;e++){
+        WT[e]=TAT[e]-BT[e];
+    }
+    float t,w;
+    printf("Calculating AVERAGE TURN AROUND TIME............. \n");
+    for(int r=0;r<n;r++){
+        w+=TAT[r];
+        t+=WT[r];
+    }
+    w=(float)w/n;
+    printf("Average Turn around time=%.3f \n",w);
+    printf("Calculating AVERAGE Waiting TIME............. \n");
+    t=(float)t/n;
+    printf("Average WAiting time=%.3f \n",t);
+
+}
